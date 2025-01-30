@@ -1,0 +1,108 @@
+in wordpress i have acf repeater filed on options page which name is iisi_student_result_subjects_list it has one sub filed which is text field with name iisi_student_result_subject_name so i want to create text fields for a custom post type iisi_student_result , one filed for each iisi_student_result_subjects_list sub field iisi_student_result_subject_name, each field will be for the subject marks and the lable for this will be subject name which will be the value of iisi_student_result_subject_name repeating fields
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+in wordpress i have custom post type iisi_student_result which has these acf fields iisi_student_roll_no iisi_student_reg_no iisi_student_father_name iisi_student_guardian_name iisi_student_total_marks iisi_student_obtained_marks iisi_student_percentage iisi_student_grade iisi_student_darja iisi_student_position_in_class iisi_student_remarks and three taxonomies classes
+
+examination
+
+years
+
+it has other fields also which i created with this code - 
+
+add_action('acf/init', function () {
+
+  // Get the subjects from the options page repeater
+
+  $subjects = get_field('iisi_student_result_subjects_list', 'option');
+
+  if (!$subjects) return;
+
+  // Create a field group for the subject marks
+
+  acf_add_local_field_group(array(
+
+    'key' => 'group_student_marks',
+
+    'title' => 'Subject Marks',
+
+    'fields' => array(),
+
+    'location' => array(
+
+      array(
+
+        array(
+
+          'param' => 'post_type',
+
+          'operator' => '==',
+
+          'value' => 'iisi_student_result',
+
+        ),
+
+      ),
+
+    ),
+
+  ));
+
+  // Loop through each subject and create a text field
+
+  foreach ($subjects as $index => $subject) {
+
+    $subject_name = $subject['iisi_student_result_subject_name'];
+
+    if (!$subject_name) continue;
+
+    // Create a sanitized key from the subject name
+
+    $field_key = 'subject_marks_' . sanitize_title($subject_name);
+
+    // Add the text field
+
+    acf_add_local_field(array(
+
+      'key' => 'field_' . $field_key,
+
+      'label' => $subject_name,
+
+      'name' => $field_key,
+
+      'type' => 'text',
+
+      'parent' => 'group_student_marks',
+
+      'wrapper' => array(
+
+        'width' => '20',
+
+      ),
+
+    ));
+
+  }
+
+});
+
+now i want to create a modern looking form where student can view their resut the form will have these fields
+
+examination
+
+year
+
+class
+
+roll number OR registration number 2 fileds
+
+menas for roll number and registration number will be separate fileds but at least one in these two will be required
+
+form and result should look modern and better ui ux, i want to do this for wordpress in php
+
+
+-------------------------------------------------------------------------------------------------

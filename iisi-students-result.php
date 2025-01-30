@@ -24,6 +24,11 @@ require_once IISI_RESULT_PLUGIN_DIR . 'inc/taxonomies.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf-fields.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/importer.php';
 
+
+// test
+require_once IISI_RESULT_PLUGIN_DIR . 'inc/test.php';
+require_once IISI_RESULT_PLUGIN_DIR . 'inc/result-form.php';
+
 // Register activation hook
 
 register_activation_hook(__FILE__, function () {
