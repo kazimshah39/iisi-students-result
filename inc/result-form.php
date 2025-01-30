@@ -69,11 +69,7 @@ function iisi_student_result_form_shortcode()
             <span class="icon">🖨️</span> Print Result
           </button>
         </div>
-        <?php
-        $watermark = get_field('iisi_student_result_watermark_image', 'option');
-        $watermark_style = $watermark ? 'style="background-image: url(' . esc_url($watermark) . ')"' : '';
-        ?>
-        <div id="result-display" class="result-card" <?php echo $watermark_style; ?>>
+        <div id="result-display" class="result-card">
           <div class="header-section">
             <!-- Institute Logo and Name -->
             <div class="institute-info">
@@ -147,6 +143,12 @@ function iisi_student_result_form_shortcode()
 
 
             <div class="subject-marks">
+              <?php
+              $watermark = get_field('iisi_student_result_watermark_image', 'option');
+              if ($watermark) {
+                echo '<img src="' . esc_url($watermark) . '" alt="Watermark" class="result-watermark">';
+              }
+              ?>
               <h3>Subject-wise Mark Sheet</h3>
               <table>
                 <thead>

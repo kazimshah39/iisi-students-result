@@ -44,20 +44,8 @@
   justify-content: space-between;
 }
 
-.signature-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-}
-
 .signature-box {
   text-align: center;
-}
-
-.signature-line {
-  width: 200px;
-  border-bottom: 2px solid #000;
-  margin-bottom: 0.5rem;
 }
 
 .qr-section {
@@ -70,25 +58,29 @@
   margin-bottom: 0.5rem;
 }
 
-.qr-text {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
 @media print {
-  /* Reset all margins and paddings */
   * {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* Hide print buttons and controls */
+  .result-footer {
+    padding-top: 2rem !important;
+  }
+
+  .subject-marks h3 {
+    padding-bottom: 1rem !important;
+  }
+
+  .additional-info {
+    padding-bottom: 0.6rem !important;
+  }
+
   .print-button,
   .search-controls {
     display: none !important;
   }
 
-  /* Set up the result card for printing */
   .result-card {
     position: fixed !important;
     left: 0;
@@ -108,7 +100,6 @@
     margin-bottom: 10px !important;
   }
 
-  /* Typography adjustments */
   .institute-name {
     font-size: 18pt !important;
   }
@@ -124,7 +115,6 @@
     margin: 10px 0 !important;
   }
 
-  /* Results section adjustments */
   .marks-summary {
     padding: 10px !important;
     gap: 1rem !important;
@@ -137,7 +127,6 @@
     margin-top: 4px !important;
   }
 
-  /* Table adjustments */
   .subject-marks {
     margin: 10px 0 !important;
   }
@@ -154,25 +143,10 @@
     border: 1px solid #ddd !important;
   }
 
-  /* Additional info section */
   .additional-info {
     margin-top: 10px !important;
     padding-top: 10px !important;
     border-top: 1px solid #ddd !important;
-  }
-
-  /* Signature section */
-  .signature-section {
-    gap: 3rem !important;
-    margin-top: 15px !important;
-    justify-content: space-between !important;
-    padding: 0 20px !important;
-  }
-
-  .signature-line {
-    width: 150px !important;
-    border-bottom: 1px solid #000 !important;
-    margin-bottom: 5px !important;
   }
 
   .signature-box p {
@@ -180,7 +154,6 @@
     margin: 4px 0 !important;
   }
 
-  /* QR code section */
   .qr-code {
     width: 80px !important;
     height: 80px !important;
@@ -191,7 +164,6 @@
     margin-top: 4px !important;
   }
 
-  /* Page setup */
   @page {
     size: A4;
     margin: 0;
