@@ -1,63 +1,3 @@
-/* Add to your existing CSS file */
-.header-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.institute-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.institute-logo {
-  width: 80px;
-  height: auto;
-}
-
-.institute-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.print-button {
-  padding: 0.5rem 1rem;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.print-button:hover {
-  background: #2563eb;
-}
-
-.result-footer {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 2px solid #e5e7eb;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.signature-box {
-  text-align: center;
-}
-
-.qr-section {
-  text-align: center;
-}
-
-.qr-code {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 0.5rem;
-}
-
 @media print {
   * {
     margin: 0 !important;
@@ -65,7 +5,7 @@
   }
 
   .result-footer {
-    padding-top: 2rem !important;
+    padding-top: 1.5rem !important;
   }
 
   .subject-marks h3 {
@@ -92,12 +32,6 @@
     overflow: visible !important;
     box-shadow: none !important;
     background: white !important;
-  }
-
-  .signature-image {
-    max-width: 300px !important;
-    max-height: 80px !important;
-    margin-bottom: 10px !important;
   }
 
   .institute-name {

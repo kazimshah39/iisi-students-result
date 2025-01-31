@@ -35,7 +35,7 @@ function render_result_import_page()
         </p>
         <?php wp_nonce_field('import_results_nonce', 'result_import_nonce'); ?>
         <p>
-          <a href="<?php echo esc_url(plugins_url('templates/sample-results.csv', __FILE__)); ?>" class="button button-secondary">
+          <a href="<?php echo esc_url(add_query_arg(['action' => 'download_sample_csv'], admin_url('admin.php'))); ?>" class="button button-secondary">
             Download Sample CSV Format
           </a>
         </p>

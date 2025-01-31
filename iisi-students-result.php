@@ -22,12 +22,9 @@ define('IISI_RESULT_PLUGIN_URL', plugin_dir_url(__FILE__));
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/post-types.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/taxonomies.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf-fields.php';
+require_once IISI_RESULT_PLUGIN_DIR . 'inc/generate_sample_csv.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/importer.php';
-
-
-// test
-require_once IISI_RESULT_PLUGIN_DIR . 'inc/test.php';
-require_once IISI_RESULT_PLUGIN_DIR . 'inc/result-form.php';
+require_once IISI_RESULT_PLUGIN_DIR . 'inc/frontend/form_shortcode.php';
 
 // Register activation hook
 
