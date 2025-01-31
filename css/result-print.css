@@ -4,6 +4,21 @@
     padding: 0 !important;
   }
 
+  .result-watermark {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto !important;
+    /* max-width: 500px; */
+    height: 500px !important;
+    max-height: 100% !important;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
   .result-footer {
     padding-top: 1.5rem !important;
   }
@@ -59,6 +74,10 @@
   .summary-item .value {
     font-size: 12pt !important;
     margin-top: 4px !important;
+  }
+
+  .result-table-container {
+    position: relative;
   }
 
   .subject-marks {

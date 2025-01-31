@@ -80,68 +80,70 @@
 
 
     <div class="subject-marks">
-      <?php
-      $watermark = get_field('iisi_student_result_watermark_image', 'option');
-      if ($watermark) {
-        echo '<img src="' . esc_url($watermark) . '" alt="Watermark" class="result-watermark">';
-      }
-      ?>
       <h3>Subject-wise Mark Sheet</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Subject</th>
-            <th>Total Marks</th>
-            <th>Obtained Marks</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          // Get the subjects from options
-          $subjects = get_field('iisi_student_result_subjects_list', 'option');
-          // Get examination term ID
-          $examination_terms = get_the_terms(get_the_ID(), 'examination');
-          $examination_id = $examination_terms[0]->term_id;
+      <div class="result-table-container">
+        <?php
+        $watermark = get_field('iisi_student_result_watermark_image', 'option');
+        if ($watermark) {
+          echo '<img src="' . esc_url($watermark) . '" alt="Watermark" class="result-watermark">';
+        }
+        ?>
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Total Marks</th>
+              <th>Obtained Marks</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            // Get the subjects from options
+            $subjects = get_field('iisi_student_result_subjects_list', 'option');
+            // Get examination term ID
+            $examination_terms = get_the_terms(get_the_ID(), 'examination');
+            $examination_id = $examination_terms[0]->term_id;
 
 
 
-          if ($subjects) {
-            foreach ($subjects as $subject) {
-              $subject_name = $subject['iisi_student_result_subject_name'];
-              $field_key = 'subject_marks_' . sanitize_title($subject_name);
-              $obtained_marks = get_field($field_key);
-              $total_marks = get_field('iisi_examinations_subjectwise_total_marks', 'examination_' . $examination_id);
+            if ($subjects) {
+              foreach ($subjects as $subject) {
+                $subject_name = $subject['iisi_student_result_subject_name'];
+                $field_key = 'subject_marks_' . sanitize_title($subject_name);
+                $obtained_marks = get_field($field_key);
+                $total_marks = get_field('iisi_examinations_subjectwise_total_marks', 'examination_' . $examination_id);
 
-              if ($obtained_marks) {
-                // Calculate pass/fail status
-                $status = '';
+                if ($obtained_marks) {
+                  // Calculate pass/fail status
+                  $status = '';
 
-                if (strtolower($subject_name) === 'مراجعہ حفظ') {
-                  $passing_percentage = 50;
-                } else {
-                  $passing_percentage = 40;
+                  if (strtolower($subject_name) === 'مراجعہ حفظ') {
+                    $passing_percentage = 50;
+                  } else {
+                    $passing_percentage = 40;
+                  }
+
+                  $percentage = ($obtained_marks / $total_marks) * 100;
+                  if ($percentage < $passing_percentage) {
+                    $status = 'Fail';
+                  } else {
+                    $status = 'Pass';
+                  }
+
+                  echo '<tr>';
+                  echo '<td>' . esc_html($subject_name) . '</td>';
+                  echo '<td>' . esc_html($total_marks) . '</td>';
+                  echo '<td>' . esc_html($obtained_marks) . '</td>';
+                  echo '<td' . ($status === 'Fail' ? ' class="fail-status"' : '') . '>' . esc_html($status) . '</td>';
+                  echo '</tr>';
                 }
-
-                $percentage = ($obtained_marks / $total_marks) * 100;
-                if ($percentage < $passing_percentage) {
-                  $status = 'Fail';
-                } else {
-                  $status = 'Pass';
-                }
-
-                echo '<tr>';
-                echo '<td>' . esc_html($subject_name) . '</td>';
-                echo '<td>' . esc_html($total_marks) . '</td>';
-                echo '<td>' . esc_html($obtained_marks) . '</td>';
-                echo '<td' . ($status === 'Fail' ? ' class="fail-status"' : '') . '>' . esc_html($status) . '</td>';
-                echo '</tr>';
               }
             }
-          }
-          ?>
-        </tbody>
-      </table>
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="additional-info">

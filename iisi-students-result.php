@@ -40,3 +40,17 @@ register_deactivation_hook(__FILE__, function () {
   // Flush rewrite rules
   flush_rewrite_rules();
 });
+
+
+/**
+ * Enqueue
+ */
+
+
+add_action('wp_enqueue_scripts',  function () {
+  if (is_page('results')) {
+    wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'css/style.css', [], IISI_RESULT_VERSION);
+    wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'css/result-print.css', [], IISI_RESULT_VERSION);
+    wp_enqueue_script('iisi-result-scripts', IISI_RESULT_PLUGIN_URL . 'js/scripts.js', [], IISI_RESULT_VERSION, true);
+  }
+});

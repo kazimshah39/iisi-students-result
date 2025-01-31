@@ -1,11 +1,6 @@
 <?php
 
 add_shortcode('student_result_form', function () {
-  // Enqueue necessary styles
-  wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'css/style.css');
-  wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'css/result-print.css');
-  wp_enqueue_script('iisi-result-scripts', IISI_RESULT_PLUGIN_URL . 'js/scripts.js', array('jquery'), '1.0', true);
-
 
   ob_start();
 

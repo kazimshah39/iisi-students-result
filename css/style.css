@@ -79,19 +79,14 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 2rem;
   padding: 2rem;
-  overflow: hidden;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 95%;
 }
 
 .result-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  z-index: -1;
-  opacity: 0.1;
-  pointer-events: none;
+  display: none;
 }
 
 .result-header {
@@ -155,6 +150,10 @@ body {
   overflow: hidden;
 }
 
+.subject-marks h3 {
+  font-size: 1.5rem !important;
+}
+
 .subject-marks .result-watermark {
   position: absolute;
   top: 50%;
@@ -198,6 +197,29 @@ body {
 
 /* Responsive Design */
 @media (max-width: 640px) {
+  .result-card {
+    padding: 0.8rem;
+  }
+
+  body .institute-name {
+    font-size: 1.2rem !important;
+  }
+
+  .info-row {
+    display: block;
+    width: 100%;
+  }
+
+  .marks-summary {
+    justify-content: center;
+    row-gap: 3rem;
+    column-gap: 2rem;
+  }
+
+  .summary-item {
+    width: 44%;
+  }
+
   .iisi-form {
     padding: 1.5rem;
   }
@@ -208,6 +230,34 @@ body {
 
   .form-seperator {
     margin: 0.5rem 0;
+  }
+
+  .search-controls {
+    width: 100%;
+    justify-content: center !important;
+    order: 1;
+  }
+
+  .search-controls button {
+    padding: 8px 15px !important;
+  }
+
+  .institute-info {
+    order: 2;
+  }
+
+  .signature-section,
+  .qr-section {
+    width: 47%;
+  }
+
+  .signature-image {
+    max-width: 100% !important;
+  }
+
+  .qr-code {
+    width: 60px !important;
+    height: 60px !important;
   }
 }
 
@@ -296,6 +346,7 @@ body {
 
 .header-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
@@ -313,8 +364,8 @@ body {
 }
 
 .institute-name {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
 }
 
 .print-button {
