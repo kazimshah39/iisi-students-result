@@ -21,7 +21,7 @@ define('IISI_RESULT_PLUGIN_URL', plugin_dir_url(__FILE__));
 // Include required files
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/post-types.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/taxonomies.php';
-require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf-fields.php';
+require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf/acf.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/generate_sample_csv.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/importer.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/frontend/form_shortcode.php';
