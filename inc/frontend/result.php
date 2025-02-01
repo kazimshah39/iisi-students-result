@@ -124,7 +124,7 @@
                     $passing_percentage = 40;
                   }
 
-                  $percentage = ($obtained_marks / $total_marks) * 100;
+                  $percentage = ((float) $obtained_marks / (float) $total_marks) * 100;
                   if ($percentage < $passing_percentage) {
                     $status = 'Fail';
                   } else {

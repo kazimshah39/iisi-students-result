@@ -4,712 +4,285 @@ require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf/student-subject-fields.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/acf/subject-repeater-validator.php';
 
 add_action('acf/include_fields', function () {
-  if (! function_exists('acf_add_local_field_group')) {
-    return;
-  }
-
-  acf_add_local_field_group(array(
+  acf_add_local_field_group([
     'key' => 'group_67979eab73bd6',
     'title' => 'Examinations Fields',
-    'fields' => array(
-      array(
+    'fields' => [
+      [
         'key' => 'field_67979eac73f57',
         'label' => 'Subjectwise Total Marks',
         'name' => 'iisi_examinations_subjectwise_total_marks',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
         'required' => 1,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-    ),
-    'location' => array(
-      array(
-        array(
+        'wrapper' => ['width' => '']
+      ]
+    ],
+    'location' => [
+      [
+        [
           'param' => 'taxonomy',
           'operator' => '==',
           'value' => 'examination',
-        ),
-      ),
-    ),
-    'menu_order' => 0,
+        ]
+      ]
+    ],
     'position' => 'normal',
     'style' => 'default',
     'label_placement' => 'top',
-    'instruction_placement' => 'label',
-    'hide_on_screen' => '',
-    'active' => true,
-    'description' => '',
-    'show_in_rest' => 0,
-  ));
+    'active' => true
+  ]);
 
-  acf_add_local_field_group(array(
+  acf_add_local_field_group([
     'key' => 'group_679702ab5c66b',
     'title' => 'Student Fields',
-    'fields' => array(
-      array(
+    'fields' => [
+      [
         'key' => 'field_6797032cb5038',
         'label' => 'Roll No',
         'name' => 'iisi_student_roll_no',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
         'required' => 1,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '50',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 1,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '50']
+      ],
+      [
         'key' => 'field_6797033db5039',
         'label' => 'Reg No',
         'name' => 'iisi_student_reg_no',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '50',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 1,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '50']
+      ],
+      [
         'key' => 'field_679702adb5035',
         'label' => 'Father Name',
         'name' => 'iisi_student_father_name',
-        'aria-label' => '',
         'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '50',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '50']
+      ],
+      [
         'key' => 'field_679702f8b5036',
         'label' => 'Guardian Name',
         'name' => 'iisi_student_guardian_name',
-        'aria-label' => '',
         'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '50',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '50']
+      ],
+      [
         'key' => 'field_67970311b5037',
         'label' => 'Total Marks',
         'name' => 'iisi_student_total_marks',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 1,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_67970464a0323',
         'label' => 'Obtained Marks',
         'name' => 'iisi_student_obtained_marks',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 1,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_6797036bf0b11',
         'label' => 'Percentage',
         'name' => 'iisi_student_percentage',
-        'aria-label' => '',
         'type' => 'number',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'min' => '',
-        'max' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'step' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_679703a3f6a15',
         'label' => 'Grade',
         'name' => 'iisi_student_grade',
-        'aria-label' => '',
         'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_67976152a8461',
         'label' => 'Darja',
         'name' => 'iisi_student_darja',
-        'aria-label' => '',
         'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_679703b3f6a16',
         'label' => 'Position in Class',
         'name' => 'iisi_student_position_in_class',
-        'aria-label' => '',
         'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '33',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'wrapper' => ['width' => '33']
+      ],
+      [
         'key' => 'field_679703c4f6a17',
         'label' => 'Remarks',
         'name' => 'iisi_student_remarks',
-        'aria-label' => '',
         'type' => 'textarea',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 1,
-        'rows' => 5,
-        'placeholder' => '',
-        'new_lines' => '',
-      ),
-    ),
-    'location' => array(
-      array(
-        array(
+        'rows' => 5
+      ]
+    ],
+    'location' => [
+      [
+        [
           'param' => 'post_type',
           'operator' => '==',
           'value' => 'iisi_student_result',
-        ),
-      ),
-    ),
-    'menu_order' => 0,
+        ]
+      ]
+    ],
     'position' => 'normal',
     'style' => 'default',
     'label_placement' => 'top',
-    'instruction_placement' => 'label',
-    'hide_on_screen' => '',
-    'active' => true,
-    'description' => '',
-    'show_in_rest' => 0,
-  ));
+    'active' => true
+  ]);
 
-  acf_add_local_field_group(array(
+  acf_add_local_field_group([
     'key' => 'group_67970e96b9251',
     'title' => 'Students Result Settings',
-    'fields' => array(
-      array(
+    'fields' => [
+      [
         'key' => 'field_67970e98d3983',
         'label' => 'Subjects',
-        'name' => '',
-        'aria-label' => '',
         'type' => 'tab',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'placement' => 'top',
-        'endpoint' => 0,
-        'selected' => 0,
-      ),
-      array(
+        'placement' => 'top'
+      ],
+      [
         'key' => 'field_67970ecf5cd5c',
         'label' => 'Subjects List',
         'name' => 'iisi_student_result_subjects_list',
-        'aria-label' => '',
         'type' => 'repeater',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
         'layout' => 'table',
-        'pagination' => 0,
-        'min' => 0,
-        'max' => 0,
-        'collapsed' => '',
         'button_label' => 'Add New Subject',
-        'rows_per_page' => 20,
-        'sub_fields' => array(
-          array(
+        'sub_fields' => [
+          [
             'key' => 'field_67970f765cd5d',
             'label' => 'Subject Name',
             'name' => 'iisi_student_result_subject_name',
-            'aria-label' => '',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'default_value' => '',
-            'maxlength' => '',
-            'allow_in_bindings' => 0,
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'parent_repeater' => 'field_67970ecf5cd5c',
-          ),
-        ),
-      ),
-      array(
+            'type' => 'text'
+          ]
+        ]
+      ],
+      [
         'key' => 'field_6799b06c64883',
         'label' => 'Result Page',
-        'name' => '',
-        'aria-label' => '',
         'type' => 'tab',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'placement' => 'top',
-        'endpoint' => 0,
-        'selected' => 0,
-      ),
-      array(
+        'placement' => 'top'
+      ],
+      [
         'key' => 'field_6799b09764885',
         'label' => 'Institute Name',
         'name' => 'iisi_student_result_institute_name',
-        'aria-label' => '',
-        'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'type' => 'text'
+      ],
+      [
         'key' => 'field_6799b07d64884',
         'label' => 'Logo',
         'name' => 'iisi_student_result_logo',
-        'aria-label' => '',
         'type' => 'image',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
         'return_format' => 'url',
-        'library' => 'all',
-        'min_width' => '',
-        'min_height' => '',
-        'min_size' => '',
-        'max_width' => '',
-        'max_height' => '',
-        'max_size' => '',
-        'mime_types' => '',
-        'allow_in_bindings' => 0,
-        'preview_size' => 'thumbnail',
-      ),
-      array(
+        'preview_size' => 'thumbnail'
+      ],
+      [
         'key' => 'field_679a441964e2a',
         'label' => 'Exam Controller Signature',
         'name' => 'iisi_student_result_exam_controller_signature',
-        'aria-label' => '',
         'type' => 'image',
         'instructions' => 'Upload a PNG image of the Exam Controller\'s signature with a size of 300x80 pixels.',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
         'return_format' => 'url',
-        'library' => 'all',
-        'min_width' => '',
-        'min_height' => '',
-        'min_size' => '',
-        'max_width' => '',
-        'max_height' => '',
-        'max_size' => '',
-        'mime_types' => '',
-        'allow_in_bindings' => 0,
-        'preview_size' => 'thumbnail',
-      ),
-      array(
+        'preview_size' => 'thumbnail'
+      ],
+      [
         'key' => 'field_679a444f64e2b',
         'label' => 'Exam Controller Name',
         'name' => 'iisi_student_result_exam_controller_name',
-        'aria-label' => '',
-        'type' => 'text',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'default_value' => '',
-        'maxlength' => '',
-        'allow_in_bindings' => 0,
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-      ),
-      array(
+        'type' => 'text'
+      ],
+      [
         'key' => 'field_679a447b64e2d',
         'label' => 'Watermark Image',
         'name' => 'iisi_student_result_watermark_image',
-        'aria-label' => '',
         'type' => 'image',
         'instructions' => 'Upload a PNG image for the watermark with a size of 500x500 pixels.',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array(
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
         'return_format' => 'url',
-        'library' => 'all',
-        'min_width' => '',
-        'min_height' => '',
-        'min_size' => '',
-        'max_width' => '',
-        'max_height' => '',
-        'max_size' => '',
-        'mime_types' => '',
-        'allow_in_bindings' => 0,
-        'preview_size' => 'thumbnail',
-      ),
-    ),
-    'location' => array(
-      array(
-        array(
+        'preview_size' => 'thumbnail'
+      ]
+    ],
+    'location' => [
+      [
+        [
           'param' => 'options_page',
           'operator' => '==',
           'value' => 'iisi_students_result_settings',
-        ),
-      ),
-    ),
-    'menu_order' => 0,
+        ]
+      ]
+    ],
     'position' => 'normal',
     'style' => 'default',
     'label_placement' => 'top',
-    'instruction_placement' => 'label',
-    'hide_on_screen' => '',
-    'active' => true,
-    'description' => '',
-    'show_in_rest' => 0,
-  ));
+    'active' => true
+  ]);
 });
 
 add_action('init', function () {
-  register_taxonomy('classes', array(
-    0 => 'iisi_student_result',
-  ), array(
-    'labels' => array(
+  register_taxonomy('classes', ['iisi_student_result'], [
+    'labels' => [
       'name' => 'Classes',
       'singular_name' => 'Class',
       'menu_name' => 'Classes',
-      'all_items' => 'All Classes',
-      'edit_item' => 'Edit Class',
-      'view_item' => 'View Class',
-      'update_item' => 'Update Class',
       'add_new_item' => 'Add New Class',
-      'new_item_name' => 'New Class Name',
-      'search_items' => 'Search Classes',
-      'popular_items' => 'Popular Classes',
-      'separate_items_with_commas' => 'Separate classes with commas',
-      'add_or_remove_items' => 'Add or remove classes',
-      'choose_from_most_used' => 'Choose from the most used classes',
-      'not_found' => 'No classes found',
-      'no_terms' => 'No classes',
-      'items_list_navigation' => 'Classes list navigation',
-      'items_list' => 'Classes list',
-      'back_to_items' => '← Go to classes',
-      'item_link' => 'Class Link',
-      'item_link_description' => 'A link to a class',
-    ),
+      'edit_item' => 'Edit Class'
+    ],
     'public' => true,
-    'show_in_menu' => true,
-    'show_in_rest' => true,
-  ));
+    'show_in_rest' => true
+  ]);
 
-  register_taxonomy('examination', array(
-    0 => 'iisi_student_result',
-  ), array(
-    'labels' => array(
+  register_taxonomy('examination', ['iisi_student_result'], [
+    'labels' => [
       'name' => 'Examinations',
       'singular_name' => 'Examination',
       'menu_name' => 'Examinations',
-      'all_items' => 'All Examinations',
-      'edit_item' => 'Edit Examination',
-      'view_item' => 'View Examination',
-      'update_item' => 'Update Examination',
       'add_new_item' => 'Add New Examination',
-      'new_item_name' => 'New Examination Name',
-      'search_items' => 'Search Examinations',
-      'popular_items' => 'Popular Examinations',
-      'separate_items_with_commas' => 'Separate examinations with commas',
-      'add_or_remove_items' => 'Add or remove examinations',
-      'choose_from_most_used' => 'Choose from the most used examinations',
-      'not_found' => 'No examinations found',
-      'no_terms' => 'No examinations',
-      'items_list_navigation' => 'Examinations list navigation',
-      'items_list' => 'Examinations list',
-      'back_to_items' => '← Go to examinations',
-      'item_link' => 'Examination Link',
-      'item_link_description' => 'A link to a examination',
-    ),
+      'edit_item' => 'Edit Examination'
+    ],
     'public' => true,
-    'show_in_menu' => true,
-    'show_in_rest' => true,
-  ));
+    'show_in_rest' => true
+  ]);
 
-  register_taxonomy('years', array(
-    0 => 'iisi_student_result',
-  ), array(
-    'labels' => array(
+  register_taxonomy('years', ['iisi_student_result'], [
+    'labels' => [
       'name' => 'Years',
       'singular_name' => 'Year',
       'menu_name' => 'Years',
-      'all_items' => 'All Years',
-      'edit_item' => 'Edit Year',
-      'view_item' => 'View Year',
-      'update_item' => 'Update Year',
       'add_new_item' => 'Add New Year',
-      'new_item_name' => 'New Year Name',
-      'search_items' => 'Search Years',
-      'popular_items' => 'Popular Years',
-      'separate_items_with_commas' => 'Separate years with commas',
-      'add_or_remove_items' => 'Add or remove years',
-      'choose_from_most_used' => 'Choose from the most used years',
-      'not_found' => 'No years found',
-      'no_terms' => 'No years',
-      'items_list_navigation' => 'Years list navigation',
-      'items_list' => 'Years list',
-      'back_to_items' => '← Go to years',
-      'item_link' => 'Year Link',
-      'item_link_description' => 'A link to a year',
-    ),
+      'edit_item' => 'Edit Year'
+    ],
     'public' => true,
-    'show_in_menu' => true,
-    'show_in_rest' => true,
-  ));
-});
+    'show_in_rest' => true
+  ]);
 
-add_action('init', function () {
-  register_post_type('iisi_student_result', array(
-    'labels' => array(
+  register_post_type('iisi_student_result', [
+    'labels' => [
       'name' => 'Students Result',
       'singular_name' => 'Student Result',
       'menu_name' => 'Students Result',
-      'all_items' => 'All Students Result',
-      'edit_item' => 'Edit Student Result',
-      'view_item' => 'View Student Result',
-      'view_items' => 'View Result',
-      'add_new_item' => 'Add New Result',
       'add_new' => 'Add New Student Result',
-      'new_item' => 'New Student Result',
-      'parent_item_colon' => 'Parent Student Result:',
-      'search_items' => 'Search Result',
-      'not_found' => 'No students result found',
-      'not_found_in_trash' => 'No students result found in Trash',
-      'archives' => 'Student Result Archives',
-      'attributes' => 'Student Result Attributes',
-      'insert_into_item' => 'Insert into student result',
-      'uploaded_to_this_item' => 'Uploaded to this student result',
-      'filter_items_list' => 'Filter students result list',
-      'filter_by_date' => 'Filter students result by date',
-      'items_list_navigation' => 'Students Result list navigation',
-      'items_list' => 'Students Result list',
-      'item_published' => 'Student Result published.',
-      'item_published_privately' => 'Student Result published privately.',
-      'item_reverted_to_draft' => 'Student Result reverted to draft.',
-      'item_scheduled' => 'Student Result scheduled.',
-      'item_updated' => 'Student Result updated.',
-      'item_link' => 'Student Result Link',
-      'item_link_description' => 'A link to a student result.',
-    ),
+      'edit_item' => 'Edit Student Result'
+    ],
     'public' => true,
     'show_in_rest' => true,
     'menu_position' => 4,
     'menu_icon' => 'dashicons-database',
-    'supports' => array(
-      0 => 'title',
-      1 => 'custom-fields',
-    ),
-    'rewrite' => array(
-      'slug' => 'student-result',
-    ),
-    'delete_with_user' => false,
-  ));
+    'supports' => ['title', 'custom-fields'],
+    'rewrite' => ['slug' => 'student-result']
+  ]);
 });
 
-
 add_filter('enter_title_here', function ($default, $post) {
-  switch ($post->post_type) {
-    case 'iisi_student_result':
-      return 'Add Student Name';
+  if ($post->post_type === 'iisi_student_result') {
+    return 'Add Student Name';
   }
-
   return $default;
 }, 10, 2);
 
 add_action('acf/init', function () {
-  acf_add_options_page(array(
+  acf_add_options_page([
     'page_title' => 'Students Result Settings',
     'menu_slug' => 'iisi_students_result_settings',
     'parent_slug' => 'edit.php?post_type=iisi_student_result',
-    'menu_title' => 'Settings',
-    'position' => '',
-    'redirect' => false,
-  ));
+    'menu_title' => 'Settings'
+  ]);
 });
