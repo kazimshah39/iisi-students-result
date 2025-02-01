@@ -7,10 +7,10 @@
     </div>
 
     <div id="search-controls" class="search-controls">
-      <button onclick="toggleForm()" class="action-btn">
+      <button onclick="toggleForm()" class="action-btn new-search-btn">
         <span class="icon">🔍</span> New Search
       </button>
-      <button onclick="window.print();" class="action-btn">
+      <button onclick="window.print();" class="action-btn print-btn">
         <span class="icon">🖨️</span> Print Result
       </button>
     </div>
