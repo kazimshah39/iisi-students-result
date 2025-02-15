@@ -24,7 +24,7 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
 
     <div class="form-group">
       <label for="year">Year*</label>
-      <select name="academic_year" id="year" required>
+      <select name="academic_year" id="year" class="non-urdu non-urdu-inner" required>
         <option value="">Select Year</option>
         <?php foreach ($years as $year): ?>
           <option value="<?php echo esc_attr($year->name); ?>"
@@ -51,19 +51,19 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
     <div class="form-group-inline">
       <div class="form-group">
         <label for="roll_no">Roll Number</label>
-        <input type="text" name="roll_no" id="roll_no" class="required-one"
+        <input type="text" name="roll_no" id="roll_no" class="required-one non-urdu"
           value="<?php echo esc_attr(isset($_POST['roll_no']) ? $_POST['roll_no'] : ''); ?>">
       </div>
       <div class="form-seperator">OR</div>
       <div class="form-group">
         <label for="reg_no">Registration Number</label>
-        <input type="text" name="reg_no" id="reg_no" class="required-one"
+        <input type="text" name="reg_no" id="reg_no" class="required-one non-urdu"
           value="<?php echo esc_attr(isset($_POST['reg_no']) ? $_POST['reg_no'] : ''); ?>">
       </div>
     </div>
 
     <div class="form-group">
-      <button type="submit" class="submit-btn">View Result</button>
+      <button type="submit" class="submit-btn non-urdu">View Result</button>
     </div>
   </form>
 </div>

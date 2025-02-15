@@ -1,7 +1,33 @@
+@font-face {
+  font-family: "Aadil";
+  src: url("./../fonts/Aadil.ttf") format("truetype");
+}
+
 body {
   /* enable backgroud color support for print */
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
+  direction: rtl;
+}
+
+.non-urdu,
+.non-urdu-inner *,
+#iisi-result-form label {
+  font-family: system-ui, sans-serif !important;
+}
+
+#iisi-result-form {
+  direction: ltr;
+}
+
+*:not(.non-urdu):not(.aadil-font) {
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+}
+
+.aadil-font,
+.aadil-font-inner * {
+  font-family: "Aadil", serif !important;
+  font-size: 1.3rem;
 }
 
 .iisi-result-container {
@@ -79,7 +105,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 2rem;
   padding: 2rem;
-  max-width: 1100px;
+  max-width: 800px;
   margin-right: auto;
   margin-left: auto;
   width: 95%;
@@ -89,25 +115,14 @@ body {
   display: none;
 }
 
-.result-header {
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.result-header h2 {
-  margin: 0 0 1rem;
-  color: #111827;
-}
-
 .student-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1rem 2rem;
 }
 
 .info-row {
-  width: 31%;
+  width: 47%;
   display: flex;
   gap: 0.5rem;
 }
@@ -121,7 +136,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin: 1.5rem 0;
   padding: 1.5rem;
   background: #f3f4f6;
   border-radius: 8px;
@@ -129,13 +143,31 @@ body {
 
 .summary-item {
   text-align: center;
+}
+
+.summary-item:nth-child(1) {
+  width: 14%;
+}
+.summary-item:nth-child(2) {
+  width: 20%;
+}
+.summary-item:nth-child(3) {
+  width: 13%;
+}
+.summary-item:nth-child(4) {
   width: 18%;
+}
+.summary-item:nth-child(5) {
+  width: 20%;
+}
+
+.summary-item .label {
+  font-weight: 700;
 }
 
 .summary-item .value {
   display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
   color: #1f2937;
   margin-top: 0.5rem;
 }
@@ -145,13 +177,8 @@ body {
 }
 
 .subject-marks {
-  margin: 2rem 0;
   position: relative;
   overflow: hidden;
-}
-
-.subject-marks h3 {
-  font-size: 1.5rem !important;
 }
 
 .subject-marks .result-watermark {
@@ -169,30 +196,35 @@ body {
 .subject-marks table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   margin-top: 1rem;
 }
 
+.result-card thead th {
+  background-color: #188c44 !important;
+  color: #fff !important;
+}
 .subject-marks th,
 .subject-marks td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.subject-marks td:first-child {
+  text-align: right;
+}
+
+.result-card table tbody > tr:nth-child(odd) > td,
+.result-card table tbody tr:hover > td,
+table tbody tr:hover > th {
+  background-color: #fff;
 }
 
 .subject-marks th {
   background: #f9fafb;
   font-weight: 500;
   color: #374151;
-}
-
-.additional-info {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid #e5e7eb;
-}
-
-.info-item {
-  margin-bottom: 1rem;
 }
 
 /* Responsive Design */
@@ -217,7 +249,7 @@ body {
   }
 
   .summary-item {
-    width: 44%;
+    width: 44% !important;
   }
 
   .iisi-form {
@@ -232,6 +264,10 @@ body {
     margin: 0.5rem 0;
   }
 
+  .subject-marks th {
+    font-size: 1rem;
+  }
+
   .search-controls {
     width: 100%;
     justify-content: center !important;
@@ -240,10 +276,6 @@ body {
 
   .search-controls button {
     padding: 8px 15px !important;
-  }
-
-  .institute-info {
-    order: 2;
   }
 
   .signature-section,
@@ -276,8 +308,10 @@ body {
 .search-controls {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
-  justify-content: flex-end;
+  position: fixed;
+  right: 3rem;
+  top: 0;
+  z-index: 99;
 }
 
 .action-btn {
@@ -306,6 +340,8 @@ body {
 }
 
 .error-message {
+  direction: ltr !important;
+  text-align: center;
   color: #dc2626;
   background-color: #fee2e2;
   padding: 0.75rem;
@@ -324,14 +360,18 @@ body {
 }
 
 .fail-status {
-  background-color: #ffebee !important;
-  color: #d32f2f !important;
+  background-color: #d32f2f !important;
+  color: #fff !important;
   font-weight: bold;
 }
 
 .summary-pass-status {
   color: #28a745 !important;
   font-weight: bold !important;
+}
+
+.green-text {
+  color: #28a745 !important;
 }
 
 .summary-fail-status {
@@ -345,22 +385,17 @@ body {
 }
 
 .header-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-.institute-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.header-section .heading-1 {
+  font-size: 1.5rem;
+  color: #188c44 !important;
 }
-
-.institute-logo {
-  width: 80px;
-  height: auto;
+.header-section .heading-2 {
+  font-size: 1.6rem;
+  color: #188c44 !important;
 }
 
 .institute-name {
@@ -368,10 +403,8 @@ body {
   font-weight: bold !important;
 }
 
-.result-footer {
-  margin-top: 2rem;
+.signature-and-qr-section {
   padding-top: 2rem;
-  border-top: 2px solid #e5e7eb;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -388,5 +421,18 @@ body {
 .qr-code {
   width: 100px;
   height: 100px;
-  margin-bottom: 0.5rem;
+}
+
+.qr-text {
+  margin: 0;
+}
+
+.print-date {
+  display: none;
+}
+
+.last-text {
+  text-align: center;
+  border-top: 2px solid;
+  margin-top: 3rem;
 }

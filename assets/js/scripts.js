@@ -1,13 +1,16 @@
 function toggleForm() {
   const form = document.querySelector(".iisi-form");
   const resultDisplay = document.getElementById("result-display");
+  const searchControls = document.getElementById("search-controls");
 
   if (form.classList.contains("hidden")) {
     form.classList.remove("hidden");
     resultDisplay.style.display = "none";
+    searchControls.style.display = "none"; // Hide search controls
   } else {
     form.classList.add("hidden");
     resultDisplay.style.display = "block";
+    searchControls.style.display = "block"; // Show search controls
   }
 }
 
@@ -24,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
  *
  */
 
-// Add this to your js/scripts.js file
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("iisi-result-form");
   const rollNoInput = document.getElementById("roll_no");

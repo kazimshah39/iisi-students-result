@@ -1,86 +1,52 @@
+<div id="search-controls" class="search-controls">
+  <button onclick="toggleForm()" class="action-btn new-search-btn non-urdu">
+    <span class="icon">🔍</span> New Search
+  </button>
+  <button onclick="window.print();" class="action-btn print-btn non-urdu">
+    <span class="icon">🖨️</span> Print Result
+  </button>
+</div>
 <div id="result-display" class="result-card">
-  <div class="header-section">
-    <!-- Institute Logo and Name -->
-    <div class="institute-info">
-      <img src="<?php echo get_field('iisi_student_result_logo', 'option'); ?>" alt="Institute Logo" class="institute-logo">
-      <h1 class="institute-name"><?php echo get_field('iisi_student_result_institute_name', 'option'); ?></h1>
-    </div>
 
-    <div id="search-controls" class="search-controls">
-      <button onclick="toggleForm()" class="action-btn new-search-btn">
-        <span class="icon">🔍</span> New Search
-      </button>
-      <button onclick="window.print();" class="action-btn print-btn">
-        <span class="icon">🖨️</span> Print Result
-      </button>
-    </div>
+  <div class="header-section">
+    <img src="<?php echo IISI_RESULT_PLUGIN_URL . 'assets/img/result-header.png' ?>" alt="Institute Logo" class="institute-logo">
+    <h3 class="heading-1 non-urdu">Detailed Marks Sheet</h3>
+    <h3 class="heading-2 aadil-font">کشف الدرجات</h3>
   </div>
   <div class="result-header">
     <div class="student-info">
       <?php
       // Define an array with labels and corresponding field keys
       $student_info = [
-        'Student Name' => get_the_title(),
-        "Father's Name" => get_field('iisi_student_father_name'),
-        "Guardian's Name" => get_field('iisi_student_guardian_name'),
-        'Roll No' => get_field('iisi_student_roll_no'),
-        'Registration No' => get_field('iisi_student_reg_no'),
-        'Position in Class' => get_field('iisi_student_position_in_class'),
-        'Class' => get_the_terms(get_the_ID(), 'classes')[0]->name,
-        'Examination' => get_the_terms(get_the_ID(), 'examination')[0]->name,
+        'رجسٹریشن نمبر' => get_field('iisi_student_reg_no'),
+        'رول نمبر' => get_field('iisi_student_roll_no'),
+        'نام طالب علم' => get_the_title(),
+        "ولدیت" => get_field('iisi_student_father_name'),
+        'جماعت' => get_the_terms(get_the_ID(), 'classes')[0]->name,
+        'امتحان' => get_the_terms(get_the_ID(), 'examination')[0]->name,
       ];
 
       // Loop through the array and generate the info rows dynamically
       foreach ($student_info as $label => $value) {
+        // Check if the label corresponds to Registration Number or Roll Number
+        $extra_class = in_array($label, ['رجسٹریشن نمبر', 'رول نمبر']) ? 'non-urdu' : '';
       ?>
         <div class="info-row">
           <span class="label"><?php echo esc_html($label); ?>:</span>
-          <span class="value"><?php echo esc_html($value); ?></span>
+          <span class="value <?php echo esc_attr($extra_class); ?>"><?php echo esc_html($value); ?></span>
         </div>
       <?php
       }
       ?>
+
     </div>
 
   </div>
 
   <div class="result-details">
-    <?php
-    $total_marks = esc_html(get_field('iisi_student_total_marks'));
-    $obtained_marks = esc_html(get_field('iisi_student_obtained_marks'));
-    $percentage = esc_html(get_field('iisi_student_percentage'));
-    $grade = esc_html(get_field('iisi_student_grade'));
-    $darja = esc_html(get_field('iisi_student_darja'));
-    ?>
-
-    <div class="marks-summary">
-      <?php
-      // Calculate overall pass/fail status
-      $pass_status = ($obtained_marks / $total_marks * 100) >= 40 ? 'Pass' : 'Fail';
-
-      // Define an associative array for summary items
-      $summary_items = [
-        'Total Marks' => $total_marks,
-        'Obtained Marks' => $obtained_marks,
-        'Percentage' => $percentage . '%',
-        'Grade' => $grade . ' - ' . $darja,
-        'Status' => $pass_status
-      ];
-
-      // Loop through items to generate HTML dynamically
-      foreach ($summary_items as $label => $value) : ?>
-        <div class="summary-item">
-          <span class="label"><?php echo esc_html($label); ?>:</span>
-          <span class="value<?php echo ($label === 'Grade') ? ' grade' : ''; ?><?php echo ($label === 'Status') ? ($value === 'Fail' ? ' summary-fail-status' : ' summary-pass-status') : ''; ?>">
-            <?php echo $value; ?>
-          </span>
-        </div>
-      <?php endforeach; ?>
-    </div>
 
 
     <div class="subject-marks">
-      <h3>Subject-wise Mark Sheet</h3>
       <div class="result-table-container">
         <?php
         $watermark = get_field('iisi_student_result_watermark_image', 'option');
@@ -90,11 +56,11 @@
         ?>
         <table>
           <thead>
-            <tr>
-              <th>Subject</th>
-              <th>Total Marks</th>
-              <th>Obtained Marks</th>
-              <th>Status</th>
+            <tr class="aadil-font aadil-font-inner">
+              <th>مضمون/کتاب</th>
+              <th>کل نمبرات</th>
+              <th>حاصل کردہ نمبرات</th>
+              <th>کیفیت</th>
             </tr>
           </thead>
           <tbody>
@@ -126,34 +92,83 @@
 
                   $percentage = ((float) $obtained_marks / (float) $total_marks) * 100;
                   if ($percentage < $passing_percentage) {
-                    $status = 'Fail';
+                    $status = 'فیل';
                   } else {
-                    $status = 'Pass';
+                    $status = 'پاس';
                   }
 
                   echo '<tr>';
                   echo '<td>' . esc_html($subject_name) . '</td>';
-                  echo '<td>' . esc_html($total_marks) . '</td>';
-                  echo '<td>' . esc_html($obtained_marks) . '</td>';
-                  echo '<td' . ($status === 'Fail' ? ' class="fail-status"' : '') . '>' . esc_html($status) . '</td>';
+                  echo '<td class="non-urdu">' . esc_html($total_marks) . '</td>';
+                  echo '<td class="non-urdu">' . esc_html($obtained_marks) . '</td>';
+                  echo '<td' . ($status === 'فیل' ? ' class="fail-status"' : '') . '>' . esc_html($status) . '</td>';
                   echo '</tr>';
                 }
               }
             }
             ?>
+            <tr>
+              <td colspan="4" style="text-align: center;">
+                <span class="label green-text aadil-font">کیفیت:</span>
+                <span class="value"><?php echo esc_html(get_field('iisi_student_remarks')); ?></span>
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </div>
     </div>
 
-    <div class="additional-info">
-      <div class="info-item">
-        <span class="label">Remarks:</span>
-        <span class="value"><?php echo esc_html(get_field('iisi_student_remarks')); ?></span>
-      </div>
+
+
+    <!--  -->
+    <?php
+    $total_marks = esc_html(get_field('iisi_student_total_marks'));
+    $obtained_marks = esc_html(get_field('iisi_student_obtained_marks'));
+    $percentage = esc_html(get_field('iisi_student_percentage'));
+    $grade = esc_html(get_field('iisi_student_grade'));
+    $darja = esc_html(get_field('iisi_student_darja'));
+    $position_in_class = esc_html(get_field('iisi_student_position_in_class'));
+    ?>
+
+    <div class="marks-summary">
+      <?php
+      // Calculate overall pass/fail status
+      $pass_status = ($obtained_marks / $total_marks * 100) >= 40 ? 'پاس' : 'فیل';
+
+      $summary_items = [
+        'کل نمبرات' => $total_marks,
+        'حاصل کردہ نمبرات' => $obtained_marks,
+        'فیصد' => $percentage . '%',
+        'تقدیر' => $darja . ' - ' . $grade,
+        'کلاس میں پوزیشن' => $position_in_class
+      ];
+
+      // Loop through items to generate HTML dynamically
+      foreach ($summary_items as $label => $value) :
+        // Add a special class to all except "تقدیر"
+        $extra_class = ($label !== 'تقدیر') ? 'non-urdu' : '';
+      ?>
+        <div class="summary-item">
+          <span class="label"><?php echo esc_html($label); ?>:</span>
+          <span class="value <?php echo esc_attr($extra_class); ?>">
+            <?php echo $value; ?>
+          </span>
+        </div>
+      <?php endforeach; ?>
+
     </div>
+
   </div>
-  <div class="result-footer">
+  <div class="signature-and-qr-section">
+    <div class="qr-section">
+      <?php
+      $post_url = get_permalink();
+      $qr_url = 'https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=' . urlencode($post_url);
+      ?>
+      <img src="<?php echo esc_url($qr_url); ?>" alt="Result QR Code" class="qr-code">
+      <p class="qr-text non-urdu">(Scan to verify)</p>
+    </div>
     <div class="signature-section">
       <div class="signature-box">
         <?php
@@ -169,14 +184,25 @@
       </div>
 
     </div>
-
-    <div class="qr-section">
-      <?php
-      $post_url = get_permalink();
-      $qr_url = 'https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=' . urlencode($post_url);
-      ?>
-      <img src="<?php echo esc_url($qr_url); ?>" alt="Result QR Code" class="qr-code">
-      <p class="qr-text">Scan to verify result</p>
-    </div>
   </div>
+  <p class="print-date">
+    <span>پرنٹ کی تاریخ:</span>
+    <?php
+    $locale = 'ur_PK';
+    $dateFormatter = new IntlDateFormatter(
+      $locale,
+      IntlDateFormatter::FULL,
+      IntlDateFormatter::NONE,
+      'Asia/Karachi',
+      IntlDateFormatter::GREGORIAN,
+      'd MMMM y'
+    );
+    echo $dateFormatter->format(time());
+    ?>
+  </p>
+  <p class="last-text green-text non-urdu">
+    Department Of Examinations, Institute of Islamic Science, Islamabad
+    <br>
+    Website: www.exams.iisi.edu.pk. Email: exams@iisi.edu.pk
+  </p>
 </div>

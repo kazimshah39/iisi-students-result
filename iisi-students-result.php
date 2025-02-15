@@ -49,37 +49,31 @@ register_deactivation_hook(__FILE__, function () {
 
 add_action('wp_enqueue_scripts',  function () {
   if (is_page('results')) {
-    wp_enqueue_script('iisi-result-scripts', IISI_RESULT_PLUGIN_URL . 'js/scripts.js', [], IISI_RESULT_VERSION, true);
+    wp_enqueue_script('iisi-result-scripts', IISI_RESULT_PLUGIN_URL . 'assets/js/scripts.js', [], IISI_RESULT_VERSION, true);
   }
 
 
   if (is_page('results') || (is_singular('iisi_student_result'))) {
-    wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'css/style.css', [], IISI_RESULT_VERSION);
-    wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'css/result-print.css', [], IISI_RESULT_VERSION);
+    wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'assets/css/style.css', [], IISI_RESULT_VERSION);
+    wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'assets/css/result-print.css', [], IISI_RESULT_VERSION);
+
+
+    // Preconnect to Google Fonts for better performance
+    wp_enqueue_style('google-fonts-preconnect', 'https://fonts.googleapis.com', [], null);
+    wp_enqueue_style('google-fonts-preconnect-gstatic', 'https://fonts.gstatic.com', [], null);
+
+    // Load the Google Font (Gulzar)
+    wp_enqueue_style('noto-nastaliq', 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap', [], null);
   }
 
   if (is_singular('iisi_student_result')) {
-    wp_enqueue_style('iisi-single-result', IISI_RESULT_PLUGIN_URL . 'css/single-result.css', [], IISI_RESULT_VERSION);
+    wp_enqueue_style('iisi-single-result', IISI_RESULT_PLUGIN_URL . 'assets/css/single-result.css', [], IISI_RESULT_VERSION);
   }
 });
 
 
 /**
+ * 
  * Test
  * 
- * 
  */
-
-add_filter('single_template', 'iisi_student_result_template');
-
-function iisi_student_result_template($single)
-{
-  global $post;
-
-  if ($post->post_type === 'iisi_student_result') {
-    // Use plugin's template
-    return IISI_RESULT_PLUGIN_DIR . 'templates/single-iisi_student_result.php';
-  }
-
-  return $single;
-}
