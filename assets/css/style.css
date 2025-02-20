@@ -360,24 +360,44 @@ table tbody tr:hover > th {
 }
 
 .fail-status {
-  background-color: #d32f2f !important;
-  color: #fff !important;
-  font-weight: bold;
+  color: #000000;
+  background-color: #ffcdd2 !important;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
-.summary-pass-status {
-  color: #28a745 !important;
-  font-weight: bold !important;
+.leave-status {
+  color: #000000;
+  background-color: #bbdefb !important;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pending-status {
+  color: #000000;
+  background-color: #fff9c4 !important;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.cancelled-status {
+  color: #000000;
+  background-color: #ffccbc !important;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.absent-status {
+  color: #000000;
+  background-color: #ffcdd2 !important;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
 .green-text {
   color: #28a745 !important;
 }
 
-.summary-fail-status {
-  color: #dc3545 !important;
-  font-weight: bold !important;
-}
 .signature-image {
   max-width: 300px;
   max-height: 80px;

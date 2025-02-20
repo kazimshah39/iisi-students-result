@@ -81,27 +81,45 @@
                 $total_marks = get_field('iisi_examinations_subjectwise_total_marks', 'examination_' . $examination_id);
 
                 if ($obtained_marks) {
-                  // Calculate pass/fail status
+                  // Calculate status based on new rules
                   $status = '';
+                  $status_class = '';
 
-                  if (strtolower($subject_name) === 'مراجعہ حفظ') {
-                    $passing_percentage = 50;
+                  if ($obtained_marks === 'L') {
+                    $status = 'رخصت';
+                    $status_class = 'leave-status';
+                  } elseif ($obtained_marks === 'P') {
+                    $status = 'ملتوی';
+                    $status_class = 'pending-status';
+                  } elseif ($obtained_marks === 'C') {
+                    $status = 'منسوخ';
+                    $status_class = 'cancelled-status';
+                  } elseif ($obtained_marks === 'A') {
+                    $status = 'فیل بوجہ غیرحاضری';
+                    $status_class = 'absent-status';
                   } else {
-                    $passing_percentage = 40;
-                  }
+                    // Numeric marks comparison
+                    if (strtolower($subject_name) === 'مراجعہ حفظ') {
+                      $passing_percentage = 50;
+                    } else {
+                      $passing_percentage = 40;
+                    }
 
-                  $percentage = ((float) $obtained_marks / (float) $total_marks) * 100;
-                  if ($percentage < $passing_percentage) {
-                    $status = 'فیل';
-                  } else {
-                    $status = 'پاس';
+                    $percentage = ((float) $obtained_marks / (float) $total_marks) * 100;
+                    if ($percentage < $passing_percentage) {
+                      $status = 'فیل';
+                      $status_class = 'fail-status';
+                    } else {
+                      $status = 'پاس';
+                      $status_class = '';
+                    }
                   }
 
                   echo '<tr>';
                   echo '<td>' . esc_html($subject_name) . '</td>';
                   echo '<td class="non-urdu">' . esc_html($total_marks) . '</td>';
                   echo '<td class="non-urdu">' . esc_html($obtained_marks) . '</td>';
-                  echo '<td' . ($status === 'فیل' ? ' class="fail-status"' : '') . '>' . esc_html($status) . '</td>';
+                  echo '<td class="' . esc_attr($status_class) . '">' . esc_html($status) . '</td>';
                   echo '</tr>';
                 }
               }
