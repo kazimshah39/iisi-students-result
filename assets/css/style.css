@@ -53,13 +53,13 @@ body {
 }
 
 .form-header h2 {
-  font-size: 1.3rem;
+  font-size: 1.3rem !important;
   font-weight: bold;
   color: #059669;
 }
 
 .form-title {
-  font-size: 1.1rem;
+  font-size: 1.1rem !important;
   font-weight: bold;
   color: #059669;
   text-align: center;
@@ -88,6 +88,10 @@ body {
 .form-group select:not(.non-urdu) {
   padding-top: 0 !important;
   padding-bottom: 6px !important;
+}
+
+.form-group input {
+  background: none !important;
 }
 
 .form-group select,
