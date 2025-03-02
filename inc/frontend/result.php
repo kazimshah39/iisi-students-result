@@ -23,7 +23,7 @@
         'نام طالب علم' => get_the_title(),
         "ولدیت" => get_field('iisi_student_father_name'),
         'جماعت' => get_the_terms(get_the_ID(), 'classes')[0]->name,
-        'امتحان' => get_the_terms(get_the_ID(), 'examination')[0]->name,
+        'امتحان' => get_the_terms(get_the_ID(), 'examination')[0]->name . " (" . get_the_terms(get_the_ID(), 'years')[0]->name . ")",
       ];
 
       // Loop through the array and generate the info rows dynamically
