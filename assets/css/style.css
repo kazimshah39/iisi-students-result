@@ -90,12 +90,9 @@ body {
   padding-bottom: 6px !important;
 }
 
-.form-group input {
-  background: none !important;
-}
-
 .form-group select,
 .form-group input {
+  background: none !important;
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;

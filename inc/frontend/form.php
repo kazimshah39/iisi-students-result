@@ -57,7 +57,7 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
 
       <div class="form-group-inline">
         <div class="form-group no-margin-bottom">
-          <label for="roll_no">Roll Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label for="roll_no">Roll Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
           <input type="text" name="roll_no" id="roll_no" class="required-one non-urdu"
             value="<?php echo esc_attr(isset($_POST['roll_no']) ? $_POST['roll_no'] : ''); ?>">
         </div>
