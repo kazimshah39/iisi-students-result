@@ -107,6 +107,10 @@
     padding-bottom: 1rem !important;
   }
 
+  .last-text {
+    margin-top: auto !important;
+  }
+
   @page {
     size: A4;
     margin: 0;

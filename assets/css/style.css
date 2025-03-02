@@ -8,6 +8,7 @@ body {
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
   direction: rtl;
+  background-color: #f8f9fe !important;
 }
 
 .non-urdu,
@@ -17,6 +18,9 @@ body {
 }
 
 #iisi-result-form {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
   direction: ltr;
 }
 
@@ -33,18 +37,44 @@ body {
 .iisi-result-container {
   max-width: 800px;
   margin: 2rem auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-.iisi-form {
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.form-header img {
+  width: 90px;
+  height: 90px;
+}
+
+.form-header h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #059669;
+}
+
+.form-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #059669;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.iisi-form .form-inner-container {
   background: #ffffff;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.form-group:not(.no-margin-bottom) {
   margin-bottom: 1.5rem;
 }
 
@@ -53,6 +83,11 @@ body {
   margin-bottom: 0.5rem;
   font-weight: 500;
   color: #374151;
+}
+
+.form-group select:not(.non-urdu) {
+  padding-top: 0 !important;
+  padding-bottom: 6px !important;
 }
 
 .form-group select,
@@ -75,7 +110,8 @@ body {
 .form-group-inline {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  column-gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-seperator {
@@ -84,22 +120,22 @@ body {
 }
 
 .submit-btn {
-  background: #3b82f6;
-  color: white;
+  width: 100% !important;
+  background: #059669 !important;
+  color: white !important;
   padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  border: none !important;
+  font-weight: 600 !important;
 }
 
 .submit-btn:hover {
-  background: #2563eb;
+  background: #038059 !important;
 }
 
 /* Result Card Styles */
 .result-card {
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -254,10 +290,6 @@ table tbody tr:hover > th {
 
   .iisi-form {
     padding: 1.5rem;
-  }
-
-  .form-group-inline {
-    flex-direction: column;
   }
 
   .form-seperator {
