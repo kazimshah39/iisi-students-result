@@ -31,7 +31,7 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
 
       <div class="form-group">
         <label for="year">Year*</label>
-        <select name="academic_year" id="year" class="non-urdu non-urdu-inner" required>
+        <select name="academic_year" id="year" required>
           <option value="">Select Year</option>
           <?php foreach ($years as $year): ?>
             <option value="<?php echo esc_attr($year->name); ?>"

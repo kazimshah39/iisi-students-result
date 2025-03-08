@@ -17,6 +17,13 @@ body {
   font-family: system-ui, sans-serif !important;
 }
 
+select,
+input,
+button,
+textarea {
+  font-family: system-ui, sans-serif !important;
+}
+
 #iisi-result-form {
   max-width: 500px;
   margin-right: auto;
@@ -83,11 +90,6 @@ body {
   margin-bottom: 0.5rem;
   font-weight: 500;
   color: #374151;
-}
-
-.form-group select:not(.non-urdu) {
-  padding-top: 0 !important;
-  padding-bottom: 6px !important;
 }
 
 .form-group select,
