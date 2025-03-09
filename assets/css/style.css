@@ -5,10 +5,10 @@
 
 body {
   /* enable backgroud color support for print */
-  -webkit-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
   direction: rtl;
-  background-color: #f8f9fe !important;
+  background-color: #f8f9fe;
 }
 
 #iisi-result-form {
@@ -24,7 +24,7 @@ body {
 
 .aadil-font,
 .aadil-font-inner * {
-  font-family: "Aadil", serif !important;
+  font-family: "Aadil", serif;
   font-size: 1.3rem;
 }
 
@@ -47,13 +47,13 @@ body {
 }
 
 .form-header h2 {
-  font-size: 1.3rem !important;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #059669;
 }
 
 .form-title {
-  font-size: 1.1rem !important;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #059669;
   text-align: center;
@@ -81,7 +81,7 @@ body {
 
 .form-group select,
 .form-group input {
-  background: none !important;
+  background: none;
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;
@@ -110,16 +110,16 @@ body {
 }
 
 .submit-btn {
-  width: 100% !important;
-  background: #059669 !important;
-  color: white !important;
+  width: 100%;
+  background: #059669;
+  color: white;
   padding: 0.75rem 1.5rem;
-  border: none !important;
-  font-weight: 600 !important;
+  border: none;
+  font-weight: 600;
 }
 
 .submit-btn:hover {
-  background: #038059 !important;
+  background: #038059;
 }
 
 /* Result Card Styles */
@@ -137,6 +137,10 @@ body {
   width: 95%;
 }
 
+.institute-logo {
+  width: 100%;
+}
+
 .result-watermark {
   display: none;
 }
@@ -144,12 +148,13 @@ body {
 .student-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
+  gap: 2rem;
 }
 
 .info-row {
   width: 47%;
   display: flex;
+  align-items: baseline;
   gap: 0.5rem;
 }
 
@@ -163,6 +168,7 @@ body {
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1.5rem;
+  margin-top: 1rem;
   background: #f3f4f6;
   border-radius: 8px;
 }
@@ -227,8 +233,8 @@ body {
 }
 
 .result-card thead th {
-  background-color: #188c44 !important;
-  color: #fff !important;
+  background-color: #188c44;
+  color: #fff;
 }
 .subject-marks th,
 .subject-marks td {
@@ -241,16 +247,9 @@ body {
   text-align: right;
 }
 
-.result-card table tbody > tr:nth-child(odd) > td,
-.result-card table tbody tr:hover > td,
-table tbody tr:hover > th {
-  background-color: #fff;
-}
-
-.subject-marks th {
-  background: #f9fafb;
-  font-weight: 500;
-  color: #374151;
+.remarks {
+  text-align: center;
+  padding: 1rem 0;
 }
 
 /* Responsive Design */
@@ -260,7 +259,7 @@ table tbody tr:hover > th {
   }
 
   body .institute-name {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
   }
 
   .info-row {
@@ -275,7 +274,7 @@ table tbody tr:hover > th {
   }
 
   .summary-item {
-    width: 44% !important;
+    width: 44%;
   }
 
   .iisi-form {
@@ -292,12 +291,12 @@ table tbody tr:hover > th {
 
   .search-controls {
     width: 100%;
-    justify-content: center !important;
+    justify-content: center;
     order: 1;
   }
 
   .search-controls button {
-    padding: 8px 15px !important;
+    padding: 8px 15px;
   }
 
   .signature-section,
@@ -306,12 +305,12 @@ table tbody tr:hover > th {
   }
 
   .signature-image {
-    max-width: 100% !important;
+    max-width: 100%;
   }
 
   .qr-code {
-    width: 60px !important;
-    height: 60px !important;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -353,7 +352,6 @@ table tbody tr:hover > th {
 
 .action-btn:hover {
   background: #e5e7eb;
-  color: #4b5563;
   transform: none;
 }
 
@@ -361,8 +359,27 @@ table tbody tr:hover > th {
   font-size: 1em;
 }
 
+.print-btn {
+  background: #007bff;
+  color: white;
+}
+
+.print-btn:hover {
+  background: #0056b3;
+}
+
+/* New Search Button */
+.new-search-btn {
+  background: #28a745;
+  color: white;
+}
+
+.new-search-btn:hover {
+  background: #1e7e34;
+}
+
 .error-message {
-  direction: ltr !important;
+  direction: ltr;
   text-align: center;
   color: #dc2626;
   background-color: #fee2e2;
@@ -373,51 +390,46 @@ table tbody tr:hover > th {
 }
 
 .error-input {
-  border-color: #dc2626 !important;
+  border-color: #dc2626;
 }
 
 .error-input:focus {
-  border-color: #dc2626 !important;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .fail-status {
   color: #000000;
-  background-color: #ffcdd2 !important;
+  background-color: #ffcdd2;
   padding: 3px 8px;
-  border-radius: 4px;
 }
 
 .leave-status {
   color: #000000;
-  background-color: #bbdefb !important;
+  background-color: #bbdefb;
   padding: 3px 8px;
-  border-radius: 4px;
 }
 
 .pending-status {
   color: #000000;
-  background-color: #fff9c4 !important;
+  background-color: #fff9c4;
   padding: 3px 8px;
-  border-radius: 4px;
 }
 
 .cancelled-status {
   color: #000000;
-  background-color: #ffccbc !important;
+  background-color: #ffccbc;
   padding: 3px 8px;
-  border-radius: 4px;
 }
 
 .absent-status {
   color: #000000;
-  background-color: #ffcdd2 !important;
+  background-color: #ffcdd2;
   padding: 3px 8px;
-  border-radius: 4px;
 }
 
 .green-text {
-  color: #28a745 !important;
+  color: #28a745;
 }
 
 .signature-image {
@@ -433,16 +445,16 @@ table tbody tr:hover > th {
 
 .header-section .heading-1 {
   font-size: 1.5rem;
-  color: #188c44 !important;
+  color: #188c44;
 }
 .header-section .heading-2 {
   font-size: 1.6rem;
-  color: #188c44 !important;
+  color: #188c44;
 }
 
 .institute-name {
-  font-size: 1.5rem !important;
-  font-weight: bold !important;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .signature-and-qr-section {

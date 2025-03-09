@@ -52,15 +52,12 @@ add_action('wp_enqueue_scripts',  function () {
     wp_enqueue_script('iisi-result-scripts', IISI_RESULT_PLUGIN_URL . 'assets/js/scripts.js', [], IISI_RESULT_VERSION, true);
   }
 
+  // wp_enqueue_style('normalize-css', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css', array(), '8.0.1', 'all');
+  wp_enqueue_style('reset-css', 'https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css', array(), '8.0.1', 'all');
 
   if (is_page('results') || (is_singular('iisi_student_result'))) {
     wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'assets/css/style.css', [], IISI_RESULT_VERSION);
     wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'assets/css/result-print.css', [], IISI_RESULT_VERSION);
-
-
-    // Preconnect to Google Fonts for better performance
-    wp_enqueue_style('google-fonts-preconnect', 'https://fonts.googleapis.com', [], null);
-    wp_enqueue_style('google-fonts-preconnect-gstatic', 'https://fonts.gstatic.com', [], null);
 
     // Load the Google Font (Gulzar)
     wp_enqueue_style('noto-nastaliq', 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap', [], null);
@@ -70,6 +67,46 @@ add_action('wp_enqueue_scripts',  function () {
     wp_enqueue_style('iisi-single-result', IISI_RESULT_PLUGIN_URL . 'assets/css/single-result.css', [], IISI_RESULT_VERSION);
   }
 });
+
+/**
+ * Remove unwanted assets results page
+ */
+
+add_action('wp_enqueue_scripts', function () {
+  if (is_page('results')) {
+    global $wp_styles, $wp_scripts;
+
+    // Allowed styles
+    $allowed_styles = array(
+      'iisi-result-style',
+      'iisi-result-print-style',
+      'noto-nastaliq',
+      'iisi-single-result',
+      // 'normalize-css',
+      'reset-css',
+    );
+
+    // Allowed scripts
+    $allowed_scripts = array(
+      'iisi-result-scripts',
+    );
+
+    // Remove unwanted styles
+    foreach ($wp_styles->queue as $handle) {
+      if (!in_array($handle, $allowed_styles)) {
+        wp_dequeue_style($handle);
+      }
+    }
+
+    // Remove unwanted scripts
+    foreach ($wp_scripts->queue as $handle) {
+      if (!in_array($handle, $allowed_scripts)) {
+        wp_dequeue_script($handle);
+      }
+    }
+  }
+}, 100);
+
 
 
 /**

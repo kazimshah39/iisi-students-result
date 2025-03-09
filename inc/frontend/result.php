@@ -29,10 +29,10 @@
       // Loop through the array and generate the info rows dynamically
       foreach ($student_info as $label => $value) {
         // Check if the label corresponds to Registration Number or Roll Number
-        $extra_class = in_array($label, ['رجسٹریشن نمبر', 'رول نمبر']) ? '' : '';
+        $extra_class = !in_array($label, ['رجسٹریشن نمبر', 'رول نمبر', 'امتحان']) ? 'urdu-font' : '';
       ?>
         <div class="info-row">
-          <span class="label"><?php echo esc_html($label); ?>:</span>
+          <span class="label urdu-font"><?php echo esc_html($label); ?>:</span>
           <span class="value <?php echo esc_attr($extra_class); ?>"><?php echo esc_html($value); ?></span>
         </div>
       <?php
@@ -116,19 +116,19 @@
                   }
 
                   echo '<tr>';
-                  echo '<td>' . esc_html($subject_name) . '</td>';
+                  echo '<td class="urdu-font">' . esc_html($subject_name) . '</td>';
                   echo '<td >' . esc_html($total_marks) . '</td>';
                   echo '<td >' . esc_html($obtained_marks) . '</td>';
-                  echo '<td class="' . esc_attr($status_class) . '">' . esc_html($status) . '</td>';
+                  echo '<td class="' . esc_attr($status_class . ' urdu-font') . '">' . esc_html($status) . '</td>';
                   echo '</tr>';
                 }
               }
             }
             ?>
             <tr>
-              <td colspan="4" style="text-align: center;">
+              <td class="remarks" colspan="4">
                 <span class="label green-text aadil-font">کیفیت:</span>
-                <span class="value"><?php echo esc_html(get_field('iisi_student_remarks')); ?></span>
+                <span class="value urdu-font"><?php echo esc_html(get_field('iisi_student_remarks')); ?></span>
               </td>
             </tr>
 
@@ -165,10 +165,10 @@
       // Loop through items to generate HTML dynamically
       foreach ($summary_items as $label => $value) :
         // Add a special class to all except "تقدیر"
-        $extra_class = ($label !== 'تقدیر') ? '' : '';
+        $extra_class = ($label == 'تقدیر') ? '' : '';
       ?>
         <div class="summary-item">
-          <span class="label"><?php echo esc_html($label); ?>:</span>
+          <span class="label urdu-font"><?php echo esc_html($label); ?>:</span>
           <span class="value <?php echo esc_attr($extra_class); ?>">
             <?php echo $value; ?>
           </span>
@@ -198,12 +198,12 @@
           echo '<div class="signature-line"></div>';
         }
         ?>
-        <p><?php echo esc_html($controller_name ? $controller_name : 'Controller of Examination'); ?></p>
+        <p class="urdu-font"><?php echo esc_html($controller_name ? $controller_name : 'ناظم امتحانات'); ?></p>
       </div>
 
     </div>
   </div>
-  <p class="print-date">
+  <p class="print-date urdu-font">
     <span>پرنٹ کی تاریخ:</span>
     <?php
     $locale = 'ur_PK';
