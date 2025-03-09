@@ -28,7 +28,7 @@
 
       // Loop through the array and generate the info rows dynamically
       foreach ($student_info as $label => $value) {
-        // Check if the label corresponds to Registration Number or Roll Number
+        // Check if the label not corresponds to Registration Number or Roll Number
         $extra_class = !in_array($label, ['رجسٹریشن نمبر', 'رول نمبر', 'امتحان']) ? 'urdu-font' : '';
       ?>
         <div class="info-row">
@@ -115,7 +115,7 @@
                     }
                   }
 
-                  echo '<tr>';
+                  echo '<tr class="marks-row">';
                   echo '<td class="urdu-font">' . esc_html($subject_name) . '</td>';
                   echo '<td >' . esc_html($total_marks) . '</td>';
                   echo '<td >' . esc_html($obtained_marks) . '</td>';
@@ -164,7 +164,7 @@
 
       // Loop through items to generate HTML dynamically
       foreach ($summary_items as $label => $value) :
-        // Add a special class to all except "تقدیر"
+        // Add a special class to "تقدیر"
         $extra_class = ($label == 'تقدیر') ? '' : '';
       ?>
         <div class="summary-item">

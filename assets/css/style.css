@@ -3,6 +3,11 @@
   src: url("./../fonts/Aadil.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Urdu";
+  src: url("./../fonts/Mehr-Nastaliq.ttf") format("truetype");
+}
+
 body {
   /* enable backgroud color support for print */
   -webkit-print-color-adjust: exact;
@@ -19,7 +24,7 @@ body {
 }
 
 .urdu-font {
-  font-family: "Noto Nastaliq Urdu", sans-serif;
+  font-family: "Urdu", sans-serif;
 }
 
 .aadil-font,
@@ -243,7 +248,7 @@ body {
   text-align: center;
 }
 
-.subject-marks td:first-child {
+.subject-marks .marks-row td:first-child {
   text-align: right;
 }
 
@@ -274,7 +279,7 @@ body {
   }
 
   .summary-item {
-    width: 44%;
+    width: 44% !important;
   }
 
   .iisi-form {
@@ -297,11 +302,6 @@ body {
 
   .search-controls button {
     padding: 8px 15px;
-  }
-
-  .signature-section,
-  .qr-section {
-    width: 47%;
   }
 
   .signature-image {
@@ -460,7 +460,6 @@ body {
 .signature-and-qr-section {
   padding-top: 2rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
