@@ -10,12 +10,12 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
   <form id="iisi-result-form" class="iisi-form" method="POST">
     <div class="form-header">
       <img src="https://exams.iisi.edu.pk/wp-content/uploads/2024/07/EXAM-DEP-IISI-LOGO-1.webp" alt="Institute of Islamic Sciences Logo">
-      <h2 class="non-urdu">DEPARTMENT OF EXAMINATIONS<br>
+      <h2>DEPARTMENT OF EXAMINATIONS<br>
         INSTITUTE OF ISLAMIC SCIENCES<br>
         ISLAMABAD</h2>
     </div>
     <div class="form-inner-container">
-      <h3 class="form-title non-urdu">ONLINE RESULTS MANAGEMENT SYSTEM (RMS)</h3>
+      <h3 class="form-title">ONLINE RESULTS MANAGEMENT SYSTEM (RMS)</h3>
       <div class="form-group">
         <label for="examination">Examination*</label>
         <select name="examination" id="examination" required>
@@ -58,19 +58,19 @@ $classes = get_terms(['taxonomy' => 'classes', 'hide_empty' => false]);
       <div class="form-group-inline">
         <div class="form-group no-margin-bottom">
           <label for="roll_no">Roll Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" name="roll_no" id="roll_no" class="required-one non-urdu"
+          <input type="text" name="roll_no" id="roll_no" class="required-one"
             value="<?php echo esc_attr(isset($_POST['roll_no']) ? $_POST['roll_no'] : ''); ?>">
         </div>
         <div class="form-seperator">OR</div>
         <div class="form-group no-margin-bottom">
           <label for="reg_no">Registration Number</label>
-          <input type="text" name="reg_no" id="reg_no" class="required-one non-urdu"
+          <input type="text" name="reg_no" id="reg_no" class="required-one"
             value="<?php echo esc_attr(isset($_POST['reg_no']) ? $_POST['reg_no'] : ''); ?>">
         </div>
       </div>
 
       <div class="form-group no-margin-bottom">
-        <button type="submit" class="submit-btn non-urdu">Search Result</button>
+        <button type="submit" class="submit-btn">Search Result</button>
       </div>
     </div>
   </form>

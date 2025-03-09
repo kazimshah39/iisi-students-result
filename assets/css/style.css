@@ -11,19 +11,6 @@ body {
   background-color: #f8f9fe !important;
 }
 
-.non-urdu,
-.non-urdu-inner *,
-#iisi-result-form label {
-  font-family: system-ui, sans-serif !important;
-}
-
-select,
-input,
-button,
-textarea {
-  font-family: system-ui, sans-serif !important;
-}
-
 #iisi-result-form {
   max-width: 500px;
   margin-right: auto;
@@ -31,7 +18,7 @@ textarea {
   direction: ltr;
 }
 
-*:not(.non-urdu):not(.aadil-font) {
+.urdu-font {
   font-family: "Noto Nastaliq Urdu", sans-serif;
 }
 

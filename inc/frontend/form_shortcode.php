@@ -9,7 +9,7 @@ add_shortcode('student_result_form', function () {
 
     // Validate required fields
     if (empty($_POST['roll_no']) && empty($_POST['reg_no'])) {
-      echo '<div class="error-message non-urdu">Please enter either Roll Number or Registration Number</div>';
+      echo '<div class="error-message">Please enter either Roll Number or Registration Number</div>';
     } else {
       // Query arguments
       $args = array(
@@ -55,7 +55,7 @@ add_shortcode('student_result_form', function () {
         require_once IISI_RESULT_PLUGIN_DIR . 'inc/frontend/result.php';
 
       else:
-        echo '<div class="error-message non-urdu">No result found for the provided information.</div>';
+        echo '<div class="error-message">No result found for the provided information.</div>';
       endif;
       wp_reset_postdata();
     }

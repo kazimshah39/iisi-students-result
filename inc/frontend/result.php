@@ -1,8 +1,8 @@
 <div id="search-controls" class="search-controls">
-  <button onclick="toggleForm()" class="action-btn new-search-btn non-urdu">
+  <button onclick="toggleForm()" class="action-btn new-search-btn">
     <span class="icon">🔍</span> New Search
   </button>
-  <button onclick="window.print();" class="action-btn print-btn non-urdu">
+  <button onclick="window.print();" class="action-btn print-btn">
     <span class="icon">🖨️</span> Print Result
   </button>
 </div>
@@ -10,7 +10,7 @@
 
   <div class="header-section">
     <img src="<?php echo IISI_RESULT_PLUGIN_URL . 'assets/img/result-header.png' ?>" alt="Institute Logo" class="institute-logo">
-    <h3 class="heading-1 non-urdu">Detailed Marks Sheet</h3>
+    <h3 class="heading-1">Detailed Marks Sheet</h3>
     <h3 class="heading-2 aadil-font">کشف الدرجات</h3>
   </div>
   <div class="result-header">
@@ -29,7 +29,7 @@
       // Loop through the array and generate the info rows dynamically
       foreach ($student_info as $label => $value) {
         // Check if the label corresponds to Registration Number or Roll Number
-        $extra_class = in_array($label, ['رجسٹریشن نمبر', 'رول نمبر']) ? 'non-urdu' : '';
+        $extra_class = in_array($label, ['رجسٹریشن نمبر', 'رول نمبر']) ? '' : '';
       ?>
         <div class="info-row">
           <span class="label"><?php echo esc_html($label); ?>:</span>
@@ -117,8 +117,8 @@
 
                   echo '<tr>';
                   echo '<td>' . esc_html($subject_name) . '</td>';
-                  echo '<td class="non-urdu">' . esc_html($total_marks) . '</td>';
-                  echo '<td class="non-urdu">' . esc_html($obtained_marks) . '</td>';
+                  echo '<td >' . esc_html($total_marks) . '</td>';
+                  echo '<td >' . esc_html($obtained_marks) . '</td>';
                   echo '<td class="' . esc_attr($status_class) . '">' . esc_html($status) . '</td>';
                   echo '</tr>';
                 }
@@ -165,7 +165,7 @@
       // Loop through items to generate HTML dynamically
       foreach ($summary_items as $label => $value) :
         // Add a special class to all except "تقدیر"
-        $extra_class = ($label !== 'تقدیر') ? 'non-urdu' : '';
+        $extra_class = ($label !== 'تقدیر') ? '' : '';
       ?>
         <div class="summary-item">
           <span class="label"><?php echo esc_html($label); ?>:</span>
@@ -185,7 +185,7 @@
       $qr_url = 'https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=' . urlencode($post_url);
       ?>
       <img src="<?php echo esc_url($qr_url); ?>" alt="Result QR Code" class="qr-code">
-      <p class="qr-text non-urdu">(Scan to verify)</p>
+      <p class="qr-text">(Scan to verify)</p>
     </div>
     <div class="signature-section">
       <div class="signature-box">
@@ -218,7 +218,7 @@
     echo $dateFormatter->format(time());
     ?>
   </p>
-  <p class="last-text green-text non-urdu">
+  <p class="last-text green-text">
     Department Of Examinations, Institute of Islamic Science, Islamabad
     <br>
     Website: www.exams.iisi.edu.pk. Email: exams@iisi.edu.pk
