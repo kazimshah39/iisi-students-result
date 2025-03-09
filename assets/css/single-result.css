@@ -1,3 +1,10 @@
+a.skip-link,
+header,
+footer,
 .search-controls .new-search-btn {
-  display: none;
+  display: none !important;
+}
+
+.result-card {
+  margin-bottom: 2rem;
 }

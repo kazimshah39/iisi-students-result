@@ -26,6 +26,7 @@ require_once IISI_RESULT_PLUGIN_DIR . 'inc/generate_sample_csv.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/importer.php';
 require_once IISI_RESULT_PLUGIN_DIR . 'inc/frontend/form_shortcode.php';
 
+
 // Register activation hook
 
 register_activation_hook(__FILE__, function () {
@@ -42,6 +43,11 @@ register_deactivation_hook(__FILE__, function () {
 });
 
 
+function is_results_page_or_single()
+{
+  return is_page('results') || is_singular('iisi_student_result');
+}
+
 /**
  * Enqueue
  */
@@ -53,13 +59,9 @@ add_action('wp_enqueue_scripts',  function () {
   }
 
 
-  if (is_page('results') || (is_singular('iisi_student_result'))) {
+  if (is_results_page_or_single()) {
     wp_enqueue_style('iisi-result-style', IISI_RESULT_PLUGIN_URL . 'assets/css/style.css', [], IISI_RESULT_VERSION);
     wp_enqueue_style('iisi-result-print-style', IISI_RESULT_PLUGIN_URL . 'assets/css/result-print.css', [], IISI_RESULT_VERSION);
-
-
-    // 
-    // wp_enqueue_style('normalize-css', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css', array(), '8.0.1', 'all');
     wp_enqueue_style('reset-css', 'https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css', array(), '8.0.1', 'all');
   }
 
@@ -71,9 +73,21 @@ add_action('wp_enqueue_scripts',  function () {
 
 // Remove admin bar for login users on results page
 add_action('wp', function () {
-  if (is_page('results')) {
+  if (is_results_page_or_single()) {
     show_admin_bar(false);
   }
+});
+
+//  add custom template on single result page
+add_filter('single_template', function ($single) {
+  global $post;
+
+  if ($post->post_type === 'iisi_student_result') {
+    // Use plugin's template
+    return IISI_RESULT_PLUGIN_DIR . 'templates/single-iisi_student_result.php';
+  }
+
+  return $single;
 });
 
 
@@ -82,7 +96,7 @@ add_action('wp', function () {
  */
 
 add_action('wp_enqueue_scripts', function () {
-  if (is_page('results')) {
+  if (is_results_page_or_single()) {
     global $wp_styles, $wp_scripts;
 
     // Allowed styles
@@ -90,7 +104,6 @@ add_action('wp_enqueue_scripts', function () {
       'iisi-result-style',
       'iisi-result-print-style',
       'iisi-single-result',
-      // 'normalize-css',
       'reset-css',
     );
 
