@@ -127,7 +127,7 @@
             ?>
             <tr>
               <td class="remarks" colspan="4">
-                <span class="label green-text aadil-font">کیفیت:</span>
+                <span class="label green-text aadil-font">مجموعی کیفیت:</span>
                 <span class="value urdu-font"><?php echo esc_html(get_field('iisi_student_remarks')); ?></span>
               </td>
             </tr>
