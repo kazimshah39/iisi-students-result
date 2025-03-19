@@ -493,4 +493,5 @@ body {
 
 .ltr-direction {
   direction: ltr;
+  unicode-bidi: bidi-override;
 }
