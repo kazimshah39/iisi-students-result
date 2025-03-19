@@ -30,10 +30,13 @@
       foreach ($student_info as $label => $value) {
         // Check if the label not corresponds to Registration Number or Roll Number
         $extra_class = !in_array($label, ['رجسٹریشن نمبر', 'رول نمبر', 'امتحان']) ? 'urdu-font' : '';
+        $direction_class = ($label === 'رجسٹریشن نمبر') ? 'ltr-direction' : '';
+
       ?>
         <div class="info-row">
           <span class="label urdu-font"><?php echo esc_html($label); ?>:</span>
-          <span class="value <?php echo esc_attr($extra_class); ?>"><?php echo esc_html($value); ?></span>
+          <span class="value <?php echo esc_attr($extra_class . ' ' . $direction_class); ?>">
+            <?php echo esc_html($value); ?></span>
         </div>
       <?php
       }

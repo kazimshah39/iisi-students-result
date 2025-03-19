@@ -255,6 +255,7 @@ body {
 .remarks {
   text-align: center;
   padding: 1rem 0;
+  line-height: 2;
 }
 
 /* Responsive Design */
@@ -488,4 +489,8 @@ body {
   text-align: center;
   border-top: 2px solid;
   margin-top: 3rem;
+}
+
+.ltr-direction {
+  direction: ltr;
 }

@@ -48,7 +48,7 @@ add_action('acf/include_fields', function () {
         'key' => 'field_6797033db5039',
         'label' => 'Reg No',
         'name' => 'iisi_student_reg_no',
-        'type' => 'number',
+        'type' => 'text',
         'wrapper' => ['width' => '50']
       ],
       [
