@@ -92,7 +92,7 @@
                     $status = 'رخصت';
                     $status_class = 'leave-status';
                   } elseif ($obtained_marks === 'P') {
-                    $status = 'ملتوی';
+                    $status = 'نتیجہ ابھی باقی ہے';
                     $status_class = 'pending-status';
                   } elseif ($obtained_marks === 'C') {
                     $status = 'منسوخ';
@@ -161,14 +161,14 @@
         'کل نمبرات' => $total_marks,
         'حاصل کردہ نمبرات' => $obtained_marks,
         'فیصد' => $percentage . '%',
-        'تقدیر' => $darja . ' - ' . $grade,
+        'تقدیر/گریڈ' => $darja . ' - ' . $grade,
         'کلاس میں پوزیشن' => $position_in_class
       ];
 
       // Loop through items to generate HTML dynamically
       foreach ($summary_items as $label => $value) :
-        // Add a special class to "تقدیر"
-        $extra_class = ($label == 'تقدیر') ? '' : '';
+        // Add a special class to "تقدیر/گریڈ"
+        $extra_class = ($label == 'تقدیر/گریڈ') ? '' : '';
       ?>
         <div class="summary-item">
           <span class="label urdu-font"><?php echo esc_html($label); ?>:</span>
@@ -222,7 +222,7 @@
     ?>
   </p>
   <p class="last-text green-text">
-    Department Of Examinations, Institute of Islamic Science, Islamabad
+    Department Of Examinations, Institute of Islamic Sciences, Islamabad
     <br>
     Website: www.exams.iisi.edu.pk. Email: exams@iisi.edu.pk
   </p>
