@@ -8,6 +8,10 @@
   src: url("./../fonts/Mehr-Nastaliq.ttf") format("truetype");
 }
 
+:root {
+  --green-primary: #188c44;
+}
+
 body {
   /* enable backgroud color support for print */
   -webkit-print-color-adjust: exact;
@@ -238,7 +242,7 @@ body {
 }
 
 .result-card thead th {
-  background-color: #188c44;
+  background-color: var(--green-primary);
   color: #fff;
 }
 .subject-marks th,
@@ -446,11 +450,11 @@ body {
 
 .header-section .heading-1 {
   font-size: 1.5rem;
-  color: #188c44;
+  color: var(--green-primary);
 }
 .header-section .heading-2 {
   font-size: 1.6rem;
-  color: #188c44;
+  color: var(--green-primary);
 }
 
 .institute-name {
@@ -494,4 +498,22 @@ body {
 .ltr-direction {
   direction: ltr;
   unicode-bidi: bidi-override;
+}
+
+.wpr-branding {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.wpr-branding a {
+  color: var(--green-primary);
+  text-decoration: none;
+  font-size: 0.7rem !important;
+}
+
+.wpr-branding a:hover {
+  text-decoration: underline;
 }

@@ -63,5 +63,8 @@ add_shortcode('student_result_form', function () {
 
   require_once IISI_RESULT_PLUGIN_DIR . 'inc/frontend/form.php';
 
+
+  echo wpr_get_branding_html('Result Checking Page');
+
   return ob_get_clean();
 });

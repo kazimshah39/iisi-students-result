@@ -128,6 +128,17 @@ add_action('wp_enqueue_scripts', function () {
   }
 }, 100);
 
+function wpr_get_branding_html($utm_medium)
+{
+  $utm_medium_encoded = urlencode($utm_medium);
+  $branding_url = 'https://webplover.com/?utm_source=exams.iisi.edu.pk&utm_medium=' . $utm_medium_encoded;
+
+  return '<div class="wpr-branding">
+        Result Management System - Developed by
+        <a href="' . $branding_url . '" target="_blank">WebPlover</a>
+    </div>';
+}
+
 
 
 /**
