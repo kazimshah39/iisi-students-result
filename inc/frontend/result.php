@@ -224,6 +224,6 @@
   <p class="last-text green-text">
     Department Of Examinations, Institute of Islamic Sciences, Islamabad
     <br>
-    Website: www.exams.iisi.edu.pk. Email: exams@iisi.edu.pk
+    Website: exams.iisi.edu.pk | Email: exams@iisi.edu.pk | Result Management System Developed by <a style="color: inherit;text-decoration:none;" href="https://webplover.com/?utm_source=exams.iisi.edu.pk&utm_medium=Result+PDF" target="_blank">WebPlover</a>
   </p>
 </div>
